@@ -12,8 +12,14 @@ public:
     void handleInput(float dt) override;
 
 private:
+    // Animations for all directions
     Animation m_walkDown;
-    Animation* m_currentAnimation;
+    Animation m_up;
+    Animation m_upRight;
+    Animation m_right;
+    Animation m_downRight;
+
+    Animation* m_currentAnimation; // pointer to currently active animation
 
     enum class Direction { UP, DOWN, LEFT, RIGHT, UP_RIGHT, DOWN_RIGHT, DOWN_LEFT, UP_LEFT, NONE };
     Direction m_direction = Direction::NONE;
