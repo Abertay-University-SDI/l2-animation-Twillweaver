@@ -2,6 +2,7 @@
 
 #include "Framework/BaseLevel.h"
 #include "Framework/GameObject.h"
+#include "Sheep.h"
 
 class Level : BaseLevel {
 public:
@@ -22,6 +23,9 @@ private:
 	float m_speed = 300.0f;
 	float m_inputBuffer = 0.f;
 	bool m_gameOver = false;
+
+	Sheep m_player;          // Our new Sheep object
+	sf::Texture m_sheepTex;  // Texture for the sheep
 
 	const float INPUT_BUFFER_LENGTH = 0.1f;
 	const float APPROX_ONE_OVER_ROOT_TWO = 0.70710678f;	// 1 / sqrt(2)
