@@ -76,6 +76,14 @@ void Sheep::handleInput(float dt)
         else if (m_input->isKeyDown(sf::Keyboard::Scancode::S))
             m_direction = Direction::DOWN;
     }
+    
+    if (m_input->isKeyDown(sf::Keyboard::Scancode::Space))
+    {
+        m_direction = Direction::NONE;
+        m_currentAnimation->reset();
+        return; // stop movement while paused
+    }
+
 
     if (m_direction != last_dir)
         m_inputBuffer = INPUT_BUFFER_LENGTH;
@@ -83,6 +91,8 @@ void Sheep::handleInput(float dt)
 
 void Sheep::update(float dt)
 {
+    if (m_direction == Direction::NONE) return;
+
     if (m_gameOver)
     {
         // freeze sheep, keep last frame
