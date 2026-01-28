@@ -120,6 +120,7 @@ void Level::update(float dt)
 		std::cout << "Game over";
 	}
 
+	m_player.update(dt); // makes the animation run 
 }
 
 // Render level

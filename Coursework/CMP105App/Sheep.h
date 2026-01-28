@@ -12,5 +12,6 @@ public:
     void handleInput(float dt) override;
 
 private:
-    // We will add animation and movement logic here later
+    Animation m_walkDown;
+    Animation* m_currentAnimation;
 };
