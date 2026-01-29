@@ -192,6 +192,7 @@ sfml-network.lib;%(AdditionalDependencies)</AdditionalDependencies>
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Sheep.cpp" />
+    <ClCompile Include="Worm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework\Animation.h" />
@@ -301,6 +302,7 @@ sfml-network.lib;%(AdditionalDependencies)</AdditionalDependencies>
     <ClInclude Include="SFML\include\SFML\Window\WindowEnums.hpp" />
     <ClInclude Include="SFML\include\SFML\Window\WindowHandle.hpp" />
     <ClInclude Include="Sheep.h" />
+    <ClInclude Include="Worm.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="gfx\pig_sheet.png" />

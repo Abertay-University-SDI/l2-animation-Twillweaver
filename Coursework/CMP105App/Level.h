@@ -3,8 +3,9 @@
 #include "Framework/BaseLevel.h"
 #include "Framework/GameObject.h"
 #include "Sheep.h"
+#include "Worm.h"
 
-class Level : BaseLevel {
+class Level : public BaseLevel {
 public:
 	Level(sf::RenderWindow& window, Input& input);
 	~Level() override = default;
@@ -18,4 +19,11 @@ private:
 
 	Sheep m_player;          // Our new Sheep object
 	sf::Texture m_sheepTex;  // Texture for the sheep
+
+	Worm m_worm; //worm texture
+	sf::Texture m_wormTex;
+
+	bool m_gameOver = false;
+
+	int m_lastPrintedSecond = -1; // count-down timer for the worm
 };

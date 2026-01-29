@@ -11,6 +11,8 @@ public:
     void update(float dt) override;
     void handleInput(float dt) override;
 
+    bool isAlive() const { return !m_gameOver; }
+
 private:
     // Animations for all directions
     Animation m_walkDown;

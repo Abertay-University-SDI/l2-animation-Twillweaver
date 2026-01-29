@@ -182,8 +182,9 @@ void Sheep::update(float dt)
             centerY - halfHeight < 0 ||       // top half inside wall
             centerY + halfHeight > winSize.y) // bottom half inside wall
         {
-            m_gameOver = true;
-            std::cout << "Game Over\n";
+            if (!m_gameOver) { // print only once
+                m_gameOver = true;
+            }
         }
     }
 }
