@@ -36,6 +36,17 @@ Level::Level(sf::RenderWindow& hwnd, Input& in) :
 	m_worm.setTexture(&m_wormTex);
 	m_worm.setSize(sf::Vector2f(64.f, 64.f));
 	m_worm.start(15.f, m_window.getSize().x, m_window.getSize().y);
+
+	// pig set-up
+	if (!m_pigTex.loadFromFile("gfx/pig_sheet.png"))
+	{
+		std::cout << "Failed to load pig texture\n";
+	}
+
+	m_pig.setTexture(&m_pigTex);
+	m_pig.setSize(sf::Vector2f(64.f, 64.f));
+	m_pig.setPosition(sf::Vector2f(400.f, 300.f));
+
 }
 
 // handle user input
@@ -61,6 +72,11 @@ void Level::update(float dt)
 		std::cout << "Game Over!\n";
 		return; // Stop worm, timer, everything
 	}
+
+	// Update pig AI
+	m_pig.checkDistanceAndUpdate(m_player.getPosition());
+	m_pig.update(dt);
+
 
 	// --- Update worm ---
 	if (!m_gameOver)
@@ -95,7 +111,9 @@ void Level::render()
 
 	m_window.draw(m_player); // draw the sheep no matter what
 
-	m_window.draw(m_worm);
+	m_window.draw(m_pig); // draw the pig
+
+	m_window.draw(m_worm);  //draw the worm
 
 	endDraw();
 }
