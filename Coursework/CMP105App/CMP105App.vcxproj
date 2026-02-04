@@ -192,6 +192,7 @@ sfml-network.lib;%(AdditionalDependencies)</AdditionalDependencies>
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Pig.cpp" />
+    <ClCompile Include="Rabbit.cpp" />
     <ClCompile Include="Sheep.cpp" />
     <ClCompile Include="Worm.cpp" />
   </ItemGroup>
@@ -202,6 +203,7 @@ sfml-network.lib;%(AdditionalDependencies)</AdditionalDependencies>
     <ClInclude Include="Framework\GameObject.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="Pig.h" />
+    <ClInclude Include="Rabbit.h" />
     <ClInclude Include="SFML\include\SFML\Audio.hpp" />
     <ClInclude Include="SFML\include\SFML\Audio\AudioResource.hpp" />
     <ClInclude Include="SFML\include\SFML\Audio\Export.hpp" />

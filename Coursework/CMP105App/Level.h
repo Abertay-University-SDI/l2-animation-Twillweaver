@@ -5,6 +5,7 @@
 #include "Sheep.h"
 #include "Worm.h"
 #include "Pig.h"
+#include "Rabbit.h"
 
 class Level : public BaseLevel {
 public:
@@ -27,7 +28,10 @@ private:
 	Pig m_pig;  // pig object
 	sf::Texture m_pigTex;  //pig texture
 
-	bool m_gameOver = false;
+	Rabbit m_rabbit;  // Rabbit object
+	sf::Texture m_rabbitTex;  // rabbit texture
+
+	bool m_gameOver = false;  // game over flag
 
 	int m_lastPrintedSecond = -1; // count-down timer for the worm
 };

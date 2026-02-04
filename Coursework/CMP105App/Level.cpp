@@ -47,6 +47,13 @@ Level::Level(sf::RenderWindow& hwnd, Input& in) :
 	m_pig.setSize(sf::Vector2f(64.f, 64.f));
 	m_pig.setPosition(sf::Vector2f(400.f, 300.f));
 
+	// rabbit set-up
+	m_rabbitTex.loadFromFile("gfx/rabbit_sheet.png");
+	m_rabbit.setTexture(&m_rabbitTex);
+	m_rabbit.setSize({ 64.f, 64.f });
+	m_rabbit.setPosition({ 500.f, 300.f });
+	m_rabbit.setWindow(&m_window);
+
 }
 
 // handle user input
@@ -62,10 +69,10 @@ void Level::update(float dt)
 	if (m_gameOver)
 		return;
 
-	// --- Update sheep ---
+	// Update sheep
 	m_player.update(dt);
 
-	// Check if sheep hit a boundary → GAME OVER
+	// Check if sheep hit a boundary = GAME OVER
 	if (!m_player.isAlive())
 	{
 		m_gameOver = true;
@@ -78,7 +85,12 @@ void Level::update(float dt)
 	m_pig.update(dt);
 
 
-	// --- Update worm ---
+	// Update rabbit
+	m_rabbit.fleeFrom(m_player.getPosition());
+	m_rabbit.update(dt);
+
+
+	// Update worm
 	if (!m_gameOver)
 	{
 		m_worm.update(dt);
@@ -91,7 +103,7 @@ void Level::update(float dt)
 			std::cout << "Time left: " << secondsLeft << std::endl;
 		}
 
-		// Worm timer finished → GAME OVER
+		// Worm timer finished = GAME OVER
 		if (m_worm.isFinished())
 		{
 			m_gameOver = true;
@@ -101,9 +113,6 @@ void Level::update(float dt)
 	}
 }
 
-
-
-
 // Render level
 void Level::render()
 {
@@ -112,6 +121,8 @@ void Level::render()
 	m_window.draw(m_player); // draw the sheep no matter what
 
 	m_window.draw(m_pig); // draw the pig
+
+	m_window.draw(m_rabbit); // draw the rabbit
 
 	m_window.draw(m_worm);  //draw the worm
 
